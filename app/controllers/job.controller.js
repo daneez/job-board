@@ -2,45 +2,31 @@ const db = require("../models");
 const Job = db.jobs;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Job
-// exports.create = (req, res) => {
-//   // Validate request
-//   if (!req.body.title) {
-//     res.status(400).send({
-//       message: "Title can not be empty!"
-//     });
-//     return;
-//   }
+const getPagination = (page, size) => {
+  const limit = size ? +size : 3;
+  const offset = page ? page * limit : 0;
 
-  // Create a Job
-  // const job = {
-  //   title: req.body.title,
-  //   description: req.body.description,
-  //   location: req.body.location,
-  //   date: req.body.date,
-  //   applicants: req.body.applicants
-  // };
+  return { limit, offset };
+};
 
-  // Save Job in the database
-//   Job.create(job)
-//     .then(data => {
-//       res.send(data);
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while creating the Job."
-//       });
-//     });
-// };
+const getPagingData = (data, page, limit) => {
+  const { count: totalItems, rows: jobs } = data;
+  const currentPage = page ? +page : 0;
+  const totalPages = Math.ceil(totalItems / limit);
+
+  return { totalItems, jobs, totalPages, currentPage };
+};
 
 // Retrieve all Jobs from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-  Job.findAll({ where: condition })
+  const { page, size } = req.query;
+
+  const { limit, offset } = getPagination(page, size);
+
+  Job.findAndCountAll({ limit, offset })
     .then(data => {
-      res.send(data);
+      const response = getPagingData(data, page, limit);
+      res.send(response);
     })
     .catch(err => {
       res.status(500).send({
@@ -54,7 +40,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Job.findOne(id)
+  Job.findByPk(id)
     .then(data => {
       res.send(data);
     })
