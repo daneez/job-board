@@ -26,14 +26,14 @@ To run this backend server, open your terminal and enter into the file directory
 ## Import CSV File using command line
 When backend server running successfully, the csv file need to be imported into mysql server.
 ### Step 1: Access MySQL shell:
-Access your terminal and log into MySQL using the following command:
+Access your terminal and log into MySQL using the following command line:
 
 `mysql -u root -p`
 
 The system prompts you to enter the password for your MySQL user. Entering the correct password gives you access to the MySQL client.
 
 ### Step 2: Import CSV into MySQL Table:
-Import the data from the CSV file into the MySQL database, using the following lines:
+Import the data from the CSV file into the MySQL database, using the following command lines:
 
 LOAD DATA LOCAL INFILE 'jobs.csv'
 INTO TABLE jobs
