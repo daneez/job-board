@@ -12,7 +12,7 @@ Before running the server, mysql need to be installed and started:
 
 
 ## Local Install:
-To run this backend server, open your terminal and enter to the file director
+To run this backend server, open your terminal and enter into the file directory:
 
 `git clone https://github.com/daneez/job-board.git`
 
