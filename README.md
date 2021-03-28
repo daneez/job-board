@@ -1,4 +1,4 @@
-# Intro:
+## Intro:
 This server is implemented by node.js + express.js + mysql 8
 
 ## Set up database:
@@ -23,16 +23,16 @@ To run this backend server, open your terminal and enter into the file directory
 `node server.js`
 
 
-# Import CSV File using command line
+## Import CSV File using command line
 When backend server running successfully, the csv file need to be imported into mysql server.
-## Step 1: Access MySQL shell:
+### Step 1: Access MySQL shell:
 Access your terminal and log into MySQL using the following command:
 
 `mysql -u root -p`
 
 The system prompts you to enter the password for your MySQL user. Entering the correct password gives you access to the MySQL client.
 
-## Step 2: Import CSV into MySQL Table:
+### Step 2: Import CSV into MySQL Table:
 Import the data from the CSV file into the MySQL database, using the following lines:
 
 LOAD DATA LOCAL INFILE 'jobs.csv'
