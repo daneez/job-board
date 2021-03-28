@@ -22,6 +22,9 @@ To run this backend server, open your terminal and enter into the file directory
 
 `node server.js`
 
+Open [http://localhost:8082](http://localhost:8082) to view it in the browser once the server started, and you will see the following success message.
+
+![screenshot](https://github.com/daneez/job-board/blob/main/Screen%20Shot%202021-03-29%20at%202.07.45%20am.png)
 
 ## Import CSV File using command line
 When backend server running successfully, the csv file need to be imported into mysql server.
