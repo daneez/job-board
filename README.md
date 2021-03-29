@@ -66,16 +66,13 @@ SET CREATEDAT = NOW();
 ```
 
 ## Source Code Structure
-### job-board/app
-| File Directory | Description |
-| ----- | ------  |
-| config | configuration for MySQL database  |
-| controllers | CRUD operations  |
-| models | Sequelize model |
-| routes | routes setting |
 ### job-board
 | File Directory | Description |
 | ----- | ------  |
+| app/config | configuration for MySQL database  |
+| app/controllers | CRUD operations  |
+| app/models | Sequelize model |
+| app/routes | routes setting |
 | package.json | config of dependencies |
 | server.js  | entry of the server  |
 
